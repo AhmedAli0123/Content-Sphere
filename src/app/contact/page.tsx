@@ -10,7 +10,9 @@ function Page() {
     event.preventDefault();
     const formData = new FormData(event.target as HTMLFormElement);
 
-    formData.append("access_key", "ae1f14d9-2356-418c-8f09-d125dd752ad9");
+
+      const acessKey=process.env.NEXT_PUBLIC_WEB3_FORM_ACESS_KEY
+    formData.append("access_key", acessKey || "");
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
