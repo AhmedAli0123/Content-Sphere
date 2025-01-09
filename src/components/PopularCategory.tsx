@@ -16,7 +16,7 @@ const popularBlogs = [
   {
     id: 2,
     title: "Technology",
-    image: "/tech.jpg",
+    image: "/technology.jpg",
     date: "October 15, 2023",
     path: "/blog/technology",
   },
