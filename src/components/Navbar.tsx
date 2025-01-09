@@ -1,9 +1,9 @@
-"use client";
-import { useRouter } from "next/navigation";
+
+
 import Link from "next/link";
 
 import { ModeToggle } from "./Theme-btn"; // Import the ModeToggle component
-import { Button } from "@/components/ui/button";
+
 import {
   Sheet,
   SheetContent,
@@ -14,16 +14,7 @@ import {
 } from "@/components/ui/sheet";
 
 const Navbar = () => {
-  const router = useRouter();
-
-  // Login and Sign Up Navigation
-  function handleLoginNavigate() {
-    router.push("/login");
-  }
-
-  function handleSignUpNavigate() {
-    router.push("/signup");
-  }
+ 
 
   return (
     <nav className="p-5 md:px-[135px] md:py-5 bg-background/50 sticky top-0 border-b backdrop-blur z-10">
@@ -54,32 +45,32 @@ const Navbar = () => {
             About
           </Link>
           <Link
-            href="/blog"
-            className="font-medium transition-all duration-300 relative group text-gray-900 dark:text-gray-100 hover:font-bold"
-          >
-            <span className="absolute left-0 bottom-0 h-0.5 w-full bg-primary transition-all duration-300 transform scale-x-0 group-hover:scale-x-100 dark:bg-gray-400"></span>
-            All
-          </Link>
-          <Link
-            href="/blog"
+            href="/blog/fashion"
             className="font-medium transition-all duration-300 relative group text-gray-900 dark:text-gray-100 hover:font-bold"
           >
             <span className="absolute left-0 bottom-0 h-0.5 w-full bg-primary transition-all duration-300 transform scale-x-0 group-hover:scale-x-100 dark:bg-gray-400"></span>
             Fashion
           </Link>
           <Link
-            href="/blog"
+            href="/blog/technology"
             className="font-medium transition-all duration-300 relative group text-gray-900 dark:text-gray-100 hover:font-bold"
           >
             <span className="absolute left-0 bottom-0 h-0.5 w-full bg-primary transition-all duration-300 transform scale-x-0 group-hover:scale-x-100 dark:bg-gray-400"></span>
-            Technolgy
+            Technology
+          </Link>
+          <Link
+            href="/blog/business"
+            className="font-medium transition-all duration-300 relative group text-gray-900 dark:text-gray-100 hover:font-bold"
+          >
+            <span className="absolute left-0 bottom-0 h-0.5 w-full bg-primary transition-all duration-300 transform scale-x-0 group-hover:scale-x-100 dark:bg-gray-400"></span>
+            Business
           </Link>
           <Link
             href="/blog"
             className="font-medium transition-all duration-300 relative group text-gray-900 dark:text-gray-100 hover:font-bold"
           >
             <span className="absolute left-0 bottom-0 h-0.5 w-full bg-primary transition-all duration-300 transform scale-x-0 group-hover:scale-x-100 dark:bg-gray-400"></span>
-            Business
+            Blog
           </Link>
           <Link
             href="/contact"
@@ -88,14 +79,7 @@ const Navbar = () => {
             <span className="absolute left-0 bottom-0 h-0.5 w-full bg-primary transition-all duration-300 transform scale-x-0 group-hover:scale-x-100 dark:bg-gray-400"></span>
             Contact
           </Link>
-          <div className="hidden md:flex space-x-4">
-            <Button variant="outline" onClick={handleLoginNavigate}>
-              Login
-            </Button>
-            <Button variant="outline" onClick={handleSignUpNavigate}>
-              SignUp
-            </Button>
-          </div>
+
           <div className="flex gap-6 items-center">
             <ModeToggle />
           </div>
@@ -139,25 +123,21 @@ const Navbar = () => {
                     <Link href="/about" className="">
                       About
                     </Link>
-                    <Link href="/blog" className="">
-                      All
-                    </Link>
-                    <Link href="/blog" className="">
+                    <Link href="/blog/fashion" className="">
                       Fashion
                     </Link>
-                    <Link href="/blog" className="">
-                      Technology
+                    <Link href="/blog/technology" className="">
+                      Technolgy
+                    </Link>
+                    <Link href="/blog/business" className="">
+                      Business
                     </Link>
                     <Link href="/blog" className="">
-                      Business
+                      All Blogs
                     </Link>
                     <Link href="/contact" className="">
                       Contact
                     </Link>
-                    <div className="flex  gap-6 items-center">
-                      <Button variant="outline">Login</Button>
-                      <Button variant="outline">SignUp</Button>
-                    </div>
                   </div>
                 </SheetDescription>
               </SheetHeader>

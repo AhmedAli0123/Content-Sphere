@@ -1,35 +1,37 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { Button } from "./ui/button";
+
+
+
 import Image from "next/image";
+import Link from "next/link";
+
 
 const popularBlogs = [
   {
     id: 1,
-    title: "Exploring Next.js: The Future of React Frameworks",
+    title: "Fashion",
     image: "/fashion.jpg",
     date: "October 1, 2023",
+    path:"/blog/fashion"
   },
   {
     id: 2,
-    title: "Harnessing TypeScript for Safer JavaScript Development",
-    image: "/typescript.jpg",
+    title: "Technology",
+    image: "/tech.jpg",
     date: "October 15, 2023",
+    path: "/blog/technology",
   },
 
   {
     id: 4,
-    title: "Agentic AI: The Next Frontier in Artificial Intelligence",
-    image: "/agentic.jpg",
+    title: "Business",
+    image: "/Business2.jpg",
     date: "November 5, 2023",
+    path: "/blog/business",
   },
 ];
 
 export default function PopularCategory() {
-  const router = useRouter();
-  function handleReadMore(blogId: number) {
-    router.push(`/blog/${blogId}`);
-  }
+ 
 
   return (
     <section className="py-10 bg-white dark:bg-black">
@@ -37,31 +39,46 @@ export default function PopularCategory() {
         <h2 className="text-3xl font-bold text-center mb-6">Popu<span className="text-[#178E79]">lar Categories</span></h2>
         <div className="flex flex-col md:flex-row justify-between gap-5 ">
           {popularBlogs.map((blog) => (
-            <div
-              key={blog.id}
-              className=" bg-gray-100 dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-            >
-              <Image
-                src={blog.image}
-                alt={blog.title}
-                width={500}
-                height={500}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold dark:text-gray-200">
-                  {blog.title}
-                </h3>
-                <p className="text-gray-400 text-sm my-5">{blog.date}</p>
-                <Button
-                  variant="outline"
-                  className="transform transition-transform duration-300 hover:scale-105 "
-                  onClick={() => handleReadMore(blog.id)}
-                >
-                  Read More
-                </Button>
-              </div>
-            </div>
+           <div 
+           key={blog.id}
+           className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+           
+             <Image className="rounded-t-lg" width={400} height={200} src={blog.image} alt={blog.title} />
+           
+           <div className="p-5">
+             <Link href={blog?.path}>
+               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                 {blog.title}
+               </h5>
+             </Link>
+             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+               Here are the biggest enterprise technology acquisitions of 2021 so far, in
+               reverse chronological order.
+             </p>
+             <Link
+              href={blog?.path}
+               className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#178E79] rounded-lg hover:bg-[#104e43] "
+             >
+               Read more
+               <svg
+                 className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                 aria-hidden="true"
+                 xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 14 10"
+               >
+                 <path
+                   stroke="currentColor"
+                   strokeLinecap="round"
+                   strokeLinejoin="round"
+                   strokeWidth={2}
+                   d="M1 5h12m0 0L9 1m4 4L9 9"
+                 />
+               </svg>
+             </Link>
+           </div>
+         </div>
+         
           ))}
         </div>
       </div>
