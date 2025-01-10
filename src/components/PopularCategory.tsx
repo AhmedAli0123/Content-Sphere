@@ -1,14 +1,21 @@
-
-
-
 import Image from "next/image";
 import Link from "next/link";
 
+interface PopularBlog {
+  id: number;
+  title: string;
+  desc: string;
+  image: string;
+  date: string;
+  path: string;
+}
 
-const popularBlogs = [
+
+const popularBlogs: PopularBlog[] = [
   {
     id: 1,
     title: "Fashion",
+    desc:"Step into the world of style and trends with our fashion insights. From timeless classics to the latest runway inspirations, discover what defines modern elegance. Fashion begins here, one blog at a time!",
     image: "/fashion.jpg",
     date: "October 1, 2023",
     path:"/blog/fashion"
@@ -16,6 +23,7 @@ const popularBlogs = [
   {
     id: 2,
     title: "Technology",
+    desc:"Explore the cutting-edge world of technology with insights on AI, quantum computing, Web3, and more. Stay ahead with the latest innovations and trends shaping our future. Technology redefined, one blog at a time!",
     image: "/technology.jpg",
     date: "October 15, 2023",
     path: "/blog/technology",
@@ -24,6 +32,7 @@ const popularBlogs = [
   {
     id: 4,
     title: "Business",
+    desc:"Unlock the secrets to success with our business blogs. From entrepreneurship to market trends, gain insights that drive innovation and growth. Your journey to business excellence starts here!",
     image: "/Business2.jpg",
     date: "November 5, 2023",
     path: "/blog/business",
@@ -52,8 +61,7 @@ export default function PopularCategory() {
                </h5>
              </Link>
              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-               Here are the biggest enterprise technology acquisitions of 2021 so far, in
-               reverse chronological order.
+              {blog?.desc}
              </p>
              <Link
               href={blog?.path}
