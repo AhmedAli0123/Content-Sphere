@@ -1,17 +1,11 @@
-"use client";
-import { useRouter } from "next/navigation";
 import React from "react";
 import PopularCategory from "@/components/PopularCategory";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 
 function Page() {
 
- 
-
-
-  const router = useRouter();
-  
   return (
     <div>
       {/* Hero Section */}
@@ -24,12 +18,13 @@ function Page() {
             Discover the latest articles and insights on programming,
             technology, and more.Leading the Industry From Past 10 years with our expert and passionate Team works at Content Sphere
           </p>
+          <Link href={"/blog"}>
           <Button
-            onClick={() => router.push("/blog")}
             className=" px-6 py-2 rounded-md text-lg font-semibold shadow transform transition-transform duration-300 hover:scale-105"
           >
             Explore Blogs
           </Button>
+          </Link>
         </div>
       </section>
 

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 import { client } from "@/sanity/lib/client";
 
+// Define the Blog type
 type Blog = {
   _id: string;
   title: string;
@@ -17,15 +18,17 @@ type Blog = {
     };
   };
   publishedAt: string;
-  categories: { title: string }[]; // Replaced `any` with a more specific type
+  categories: { title: string }[]; 
   slug: {
     current: string;
   };
 };
 
 function BlogPage() {
+  // Initialize the state for the blogs
   const [blogs, setBlogs] = React.useState<Blog[]>([]);
 
+  // Fetch the blog posts from Sanity
   useEffect(() => {
     async function fetchBlogs() {
       const data: Blog[] = await client.fetch(
@@ -51,6 +54,7 @@ function BlogPage() {
     fetchBlogs();
   }, []);
 
+  // Initialize the router for navigation to the blog post
   const router = useRouter();
   function handleNavigate(slug: string) {
     router.push(`/blog/${slug}`);
@@ -62,6 +66,7 @@ function BlogPage() {
         Blogs
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Apply Map method to show all the blog */}
         {blogs.map((blog) => (
           <div
             key={blog._id}

@@ -9,6 +9,7 @@ import CommentSection from "./component/CommentSection";
 async function PostPage({ params }: { params: { slug: string } }) {
   const { slug } = params; // Extract slug from the params object.
 
+  // Define the query to fetch the post data
   const query = groq`
   *[_type == "post" && slug.current == $slug][0] {
     title,
@@ -32,6 +33,7 @@ async function PostPage({ params }: { params: { slug: string } }) {
 
   const post = await client.fetch(query, { slug });
 
+  // If the post is not found, return a message
   if (!post) {
     return <div>Post not found!</div>;
   }
