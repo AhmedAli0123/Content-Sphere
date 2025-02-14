@@ -96,7 +96,7 @@ async function PostPage({ params }: { params: { slug: string } }) {
       <h2 className="text-center text-2xl font-bold underline md:text-4xl">
         Comment Section
       </h2>
-      <CommentSection comments={post.comments} postId={post._id} />
+      <CommentSection  postId={post._id} />
     </section>
   );
 }

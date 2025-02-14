@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { client } from "@/sanity/lib/client";
 import { FaUser } from "react-icons/fa";
 import { format } from "date-fns";
@@ -8,16 +8,19 @@ import { Button } from "@/components/ui/button";
 import Swal from "sweetalert2";
 import { commentSection } from "@/types/Comment";
 
+interface props{
+  postId:string
+}
 
 
-const CommentSection = ({ postId }:any) => {
+const CommentSection:React.FC<props> = ({ postId}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
 
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState<commentSection[]>([]);
 
-  const fetchComments = async () => {
+  const fetchComments = useCallback(async () => {
     try {
       const query = `*[_type == "comment" && post._ref == $postId && approved == true] | order(_createdAt desc)`;
       const approvedComments = await client.fetch(query, { postId });
@@ -25,11 +28,11 @@ const CommentSection = ({ postId }:any) => {
     } catch (error) {
       console.error("Error fetching comments:", error);
     }
-  };
-
+  }, [postId]);
+  
   useEffect(() => {
     fetchComments();
-  }, [postId]);
+  }, [fetchComments]);
 
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
