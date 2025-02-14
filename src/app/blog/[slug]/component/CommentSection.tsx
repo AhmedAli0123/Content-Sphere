@@ -6,6 +6,7 @@ import { FaUser } from "react-icons/fa";
 import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
 import Swal from "sweetalert2";
+import { commentSection } from "@/types/Comment";
 
 
 
@@ -13,7 +14,7 @@ const CommentSection = ({ postId }:any) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+
   const [comments, setComments] = useState([]);
 
   const fetchComments = async () => {
@@ -43,7 +44,6 @@ const CommentSection = ({ postId }:any) => {
 
     try {
       await client.create(newComment);
-      setSubmitted(true);
       setName("");
       setEmail("");
       setComment("");
