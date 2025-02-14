@@ -1,161 +1,159 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
+import { client } from "@/sanity/lib/client";
+import { FaUser } from "react-icons/fa";
+import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
-import { ToastContainer, toast, Bounce } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-interface Comment {
-  id: number;
-  name: string;
-  email: string;
-  comment: string;
-  date: string;
-}
 
-const CommentSection: React.FC = () => {
-  const [comments, setComments] = useState<Comment[]>([]);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    comment: "",
-  });
+const CommentSection = ({ postId }:any) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [comments, setComments] = useState([]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // Prevents page refresh
-    if (formData.name && formData.comment) {
-      const newComment: Comment = {
-        id: Date.now(), // Unique ID for each comment
-        name: formData.name,
-        email: formData.email,
-        comment: formData.comment,
-        date: new Date().toLocaleDateString(),
-      };
-      setComments([newComment, ...comments]); // Add new comment to the list
-      setFormData({ name: "", email: "", comment: "" }); // Clear form data
+  const fetchComments = async () => {
+    try {
+      const query = `*[_type == "comment" && post._ref == $postId && approved == true] | order(_createdAt desc)`;
+      const approvedComments = await client.fetch(query, { postId });
+      setComments(approvedComments);
+    } catch (error) {
+      console.error("Error fetching comments:", error);
     }
   };
 
+  useEffect(() => {
+    fetchComments();
+  }, [postId]);
 
-  // For Notification 
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const newComment = {
+      _type: "comment",
+      name,
+      email,
+      comment,
+      post: { _type: "reference", _ref: postId },
+      approved: false,
+    };
 
-  function handleNotification() {
-    toast.success("Comment added successfully!", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-    });
-  }
+    try {
+      await client.create(newComment);
+      setSubmitted(true);
+      setName("");
+      setEmail("");
+      setComment("");
+
+      // Success Alert
+      Swal.fire({
+        title: "Comment Submitted!",
+        text: "Your comment has been sent for approval.",
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "OK",
+      });
+
+    } catch (err) {
+      console.error("Error submitting comment:", err);
+
+      // Error Alert
+      Swal.fire({
+        title: "Error!",
+        text: "Failed to submit your comment. Please try again later.",
+        icon: "error",
+        confirmButtonColor: "#d33",
+        confirmButtonText: "OK",
+      });
+    }
+  };
 
   return (
-    <div className="max-w-2xl my-[50px] mx-auto p-6 bg-gray-200 dark:bg-gray-700 shadow-md rounded-lg">
-      <h2 className="text-2xl font-semibold">Comment</h2>
-
-      {/* Form Section */}
-      <form onSubmit={handleSubmit} className="mb-6">
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Your Name"
-            required
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-            Email (optional)
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Your Email"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="comment" className="block text-sm font-medium text-gray-700">
-            Comment
-          </label>
-          <textarea
-            id="comment"
-            name="comment"
-            value={formData.comment}
-            onChange={handleInputChange}
-            rows={4}
-            className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Write your comment"
-            required
-          />
-        </div>
-
-        <Button
-          type="submit"
-          className="w-full "
-          onClick={handleNotification}
-        >
-          Submit Comment
-        </Button>
-        <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-                transition= {Bounce}
-              />
-
-      </form>
-
-      {/* Comments List */}
-      <div>
-        {comments.length > 0 ? (
-          comments.map((comment) => (
+    <div className="mt-8 p-6 rounded-lg shadow-lg transition duration-300">
+      {/* COMMENTS SECTION */}
+      <div className="mb-8">
+        <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+          Comments
+        </h3>
+        {comments.length === 0 ? (
+          <p className="text-gray-500 dark:text-gray-400">
+            No approved comments yet.
+          </p>
+        ) : (
+          comments.map((comment: commentSection) => (
             <div
-              key={comment.id}
-              className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm mb-4"
+              key={comment._id}
+              className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg shadow-md mb-4 flex items-start gap-4 transition duration-300"
             >
-              <FaUserCircle className="text-3xl text-gray-500" />
+              <div className="flex items-center justify-center w-12 h-12 bg-gray-300 dark:bg-gray-700 rounded-full">
+                <FaUser className="text-gray-700 dark:text-gray-300 text-xl" />
+              </div>
               <div>
-                <h3 className="font-semibold text-gray-800">{comment.name}</h3>
-                <p className="text-sm text-gray-500">{comment.date}</p>
-                <p className="mt-2 text-gray-700">{comment.comment}</p>
+                <p className="font-bold text-gray-900 dark:text-gray-50">
+                  {comment.name}
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-300">
+                  {format(new Date(comment._createdAt), "PPpp")}
+                </p>
+                <p className="mt-2 text-gray-800 dark:text-gray-100 font-semibold">
+                  {comment.comment}
+                </p>
               </div>
             </div>
           ))
-        ) : (
-          <p className="text-gray-500">No comments yet. Be the first to comment!</p>
         )}
       </div>
+
+      {/* COMMENT FORM */}
+      <form
+        onSubmit={handleSubmit}
+        className="p-6 rounded-lg shadow-md transition duration-300"
+      >
+        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4">
+          Leave a Comment
+        </h3>
+        <div className="grid gap-4">
+          <label className="block">
+            <span className="text-gray-700 dark:text-gray-300">Name</span>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-sm p-2 focus:ring-2 focus:ring-blue-500 transition"
+              required
+            />
+          </label>
+
+          <label className="block">
+            <span className="text-gray-700 dark:text-gray-300">Email</span>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-sm p-2 focus:ring-2 focus:ring-blue-500 transition"
+              required
+            />
+          </label>
+
+          <label className="block">
+            <span className="text-gray-700 dark:text-gray-300">Comment</span>
+            <textarea
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-sm p-2 focus:ring-2 focus:ring-blue-500 transition"
+              rows={3}
+              required
+            ></textarea>
+          </label>
+        </div>
+
+        <Button type="submit" className="mt-4 w-full px-4 py-2 rounded-md">
+          Submit
+        </Button>
+      </form>
     </div>
   );
 };

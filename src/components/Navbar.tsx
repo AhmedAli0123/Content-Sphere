@@ -111,9 +111,8 @@ const Navbar = () => {
             <SheetContent>
               <SheetHeader>
                 <SheetTitle>
-                  <h2 className="font-bold items-center text-center">
-                    Ahmed Blog
-                  </h2>
+                <span  className="absolute left-0 bottom-0 h-0.5 w-full bg-primary transition-all duration-300 transform scale-x-0 group-hover:scale-x-100 dark:bg-gray-400"></span>
+                Con<span className="text-[#178E79]">tent Sphere</span>
                 </SheetTitle>
                 <SheetDescription>
                   <div className="flex flex-col  gap-4 items-center mt-5">

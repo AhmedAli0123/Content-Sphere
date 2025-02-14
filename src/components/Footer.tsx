@@ -50,7 +50,7 @@ const Footer = () => {
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {new Date().getFullYear()}{""} <Link href="https://www.linkedin.com/in/ahmed-ali-160b2a313/">Con<span className="text-[#178E79]">tent Sphere</span></Link>. All Rights Reserved.</span>
                     <div className="flex mt-4 sm:justify-center sm:mt-0">
 
                         {/* Social Media Icons */}
