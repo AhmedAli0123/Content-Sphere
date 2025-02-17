@@ -5,6 +5,8 @@ import { client } from "@/sanity/lib/client";
 import { PortableText, PortableTextComponents } from "@portabletext/react"; 
 import { urlFor } from "@/sanity/lib/image"; // Import Sanity image helper
 import CommentSection from "./component/CommentSection";
+import RelatedPosts from "./component/RelatedPost";
+import SkeletonLoader from "@/components/SkeletonLoader";
 
 // Define a custom component for handling images inside PortableText
 const components: PortableTextComponents = {
@@ -58,6 +60,9 @@ async function PostPage({ params }: { params: { slug: string } }) {
   if (!post) {
     return <div>Post not found!</div>;
   }
+  if(!post){
+    return <SkeletonLoader />
+  }
 
   return (
     <section>
@@ -93,7 +98,10 @@ async function PostPage({ params }: { params: { slug: string } }) {
         </div>
       </div>
 
-      <h2 className="text-center text-2xl font-bold underline md:text-4xl">
+      <RelatedPosts categories={post.categories} currentPostId={post._id} />
+
+      {/* Comment Section */}
+      <h2 className="text-center text-2xl font-bold underline md:text-4xl m-[40px]">
         Comment Section
       </h2>
       <CommentSection  postId={post._id} />
