@@ -30,7 +30,7 @@ function BlogPage() {
   useEffect(() => {
     async function fetchBlogs() {
       const data: Blog[] = await client.fetch(
-        `*[_type=="post"]{
+        `*[_type=="post"] | order(_createdAt desc){
           _id,
           title,
           description,

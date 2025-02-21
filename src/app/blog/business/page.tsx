@@ -29,7 +29,7 @@ export default function BusinessPage() {
   useEffect(() => {
     async function fetchBlogs() {
       const data: Blog[] = await client.fetch(
-        `*[_type == "post" && "Business" in categories[]->title]{
+        `*[_type == "post" && "Business" in categories[]->title] | order(_createdAt desc){
           _id,
           title,
           description,
