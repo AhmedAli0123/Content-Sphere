@@ -2,9 +2,43 @@ import React from "react";
 import PopularCategory from "@/components/PopularCategory";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+    title: 'Content Sphere – Blogs on Business, Technology, Fashion & AI',
+    description: 'Explore high-quality articles about business, technology, and latest technologies at Content Sphere.',
+    keywords: ['business blog', 'fastest growing blog', 'technology blog', 'Ai Blogs', 'developer blogs', 'blogs' ,'insights'],
+    authors: [{ name: 'Ahmed Ali' }],
+    robots: 'index, follow',
+    openGraph: {
+      title: 'Content Sphere',
+      description: 'Explore insightful business and fast growing blogs on technology, fashion and AI.',
+      url: 'https://content-sphere-one.vercel.app',
+      siteName: 'Content Sphere',
+      images: [
+        {
+          url: 'https://content-sphere-one.vercel.app/og-home.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Content Sphere Logo',
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Content Sphere',
+      description: 'Explore insightful programming and AI blogs.',
+      images: ['https://content-sphere-one.vercel.app/og-home.jpg'],
+    },
+  };
 
 
 function Page() {
+
+  
 
   return (
     <div>

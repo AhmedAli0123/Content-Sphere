@@ -1,8 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'About Content Sphere  - Discover the story behind Content Sphere — a dynamic blogging platform covering the latest in fashion, business trends, and emerging technologies. Learn about our mission to inform, inspire, and empower curious minds.',
+  keywords: ['About Content Sphere', 'Content Sphere About', 'About Page', 'Blog About', 'About Page', 'About Content Sphere'],
+};
 
 const About: React.FC = () => {
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-black py-12 px-6 sm:px-10 lg:px-20">
       {/* Hero Section */}

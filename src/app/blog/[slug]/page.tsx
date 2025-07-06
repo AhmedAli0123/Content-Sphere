@@ -7,6 +7,7 @@ import { urlFor } from "@/sanity/lib/image"; // Import Sanity image helper
 import CommentSection from "./component/CommentSection";
 import RelatedPosts from "./component/RelatedPost";
 import SkeletonLoader from "@/components/SkeletonLoader";
+import { Metadata } from "next";
 
 // Define a custom component for handling images inside PortableText
 const components: PortableTextComponents = {
@@ -27,6 +28,46 @@ const components: PortableTextComponents = {
     },
   },
 };
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = params;
+  const query = groq`
+    *[_type == "post" && slug.current == $slug][0] {
+      title,
+      body
+    }
+  `;
+  
+  const post = await client.fetch(query, { slug });
+  
+  return {
+    title: post?.title || 'Blog Post',
+    description: post?.body ? post.body[0]?.children?.[0]?.text?.slice(0, 160) || 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.' : 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.',
+    authors: [{ name: post.author?.name || 'Content Sphere Team' }],
+    openGraph: {
+      title: post?.title || 'Blog Post',
+      description: post?.body ? post.body[0]?.children?.[0]?.text?.slice(0, 160) || 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.' : 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.',
+      images: [
+        {
+          url: post?.mainImage?.asset.url || 'https://content-sphere-one.vercel.app/og-home.jpg',
+          width: 1200,
+          height: 630,
+          alt: post?.title || 'Blog Post',
+        },
+      ],
+      type: 'article',
+      url: `https://content-sphere-one.vercel.app/blog/${params.slug}`,
+      siteName: 'Content Sphere',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt || post.description,
+      images: [post.image || 'https://content-sphere-one.vercel.app/default-og.png'],
+    },
+  };
+}
+
 
 async function PostPage({ params }: { params: { slug: string } }) {
   const { slug } = params;

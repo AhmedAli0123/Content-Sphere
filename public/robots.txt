@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /studio/
+
+# Host
+Host: https://content-sphere-one.vercel.app
+
+# Sitemaps
+Sitemap: https://content-sphere-one.vercel.app/sitemap.xml
