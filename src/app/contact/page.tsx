@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ContactForm from "./ContactForm";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -10,6 +11,10 @@ export const metadata: Metadata = {
 function Page() {
   return (
     <>
+    {/* Breadcrumbs */}
+    <div className="max-w-6xl mx-auto px-6 pt-8">
+        <Breadcrumbs items={[{ label: 'Contact Us' }]} />
+      </div>
       <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
             Get in Touch

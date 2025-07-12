@@ -43,22 +43,21 @@ export default function PopularCategory() {
  
 
   return (
-    <section className="py-10 bg-white dark:bg-black">
+    <section className="py-10">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-6">Popu<span className="text-[#178E79]">lar Categories</span></h2>
         <div className="flex flex-col md:flex-row justify-between gap-5 ">
           {popularBlogs.map((blog) => (
            <div 
            key={blog.id}
            className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
            
-             <Image className="rounded-t-lg" width={400} height={200} src={blog.image} alt={blog.title} />
+             <Image className="rounded-t-lg" width={400} height={200} src={blog.image} alt={blog.title} title={blog.title} />
            
            <div className="p-5">
              <Link href={blog?.path}>
-               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+               <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                  {blog.title}
-               </h5>
+               </h3>
              </Link>
              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
               {blog?.desc}

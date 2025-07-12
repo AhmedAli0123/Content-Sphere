@@ -125,6 +125,7 @@ async function PostPage({ params }: { params: { slug: string } }) {
           <Image
             src={post.mainImage?.asset.url}
             alt={post.mainImage?.alt || "Post image"}
+            title={post.mainImage?.alt || "Post image"}
             width={500}
             height={500}
             className="w-full h-auto rounded-lg mb-6"
