@@ -6,6 +6,7 @@ import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
+    
     title: 'Content Sphere – Blogs on Business, Technology, Fashion & AI',
     description: 'Explore high-quality articles about business, technology, and latest technologies at Content Sphere.',
     keywords: ['business blog', 'fastest growing blog', 'technology blog', 'Ai Blogs', 'developer blogs', 'blogs' ,'insights'],
