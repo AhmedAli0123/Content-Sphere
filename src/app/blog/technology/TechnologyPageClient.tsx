@@ -160,7 +160,7 @@ export default function TechnologyPageClient() {
           </h2>
           <p className="text-lg mb-8 opacity-90">
             Dive into our curated collection of technology articles covering the most relevant topics 
-            in today's digital landscape. From beginner-friendly guides to advanced technical deep-dives, 
+            in today&apos;s digital landscape. From beginner-friendly guides to advanced technical deep-dives, 
             we have content for every level of expertise.
           </p>
           <div className="grid md:grid-cols-2 gap-6">

@@ -128,7 +128,7 @@ export default function BusinessPageClient() {
                 Why Business Strategy Matters in 2025
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                In today's rapidly evolving business landscape, having a solid strategy is more crucial than ever. 
+                In today&apos;s rapidly evolving business landscape, having a solid strategy is more crucial than ever. 
                 Companies that adapt quickly to market changes, leverage emerging technologies, and prioritize 
                 customer experience are the ones that thrive. Our business blog provides actionable insights 
                 to help you navigate these challenges and opportunities.

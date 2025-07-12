@@ -149,7 +149,7 @@ export default function FashionPageClient() {
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
               Learn about eco-friendly fashion, ethical brands, sustainable materials, and how to 
-              build a conscious wardrobe that's both stylish and environmentally responsible.
+              build a conscious wardrobe that&apos;s both stylish and environmentally responsible.
             </p>
           </div>
         </div>
@@ -163,7 +163,7 @@ export default function FashionPageClient() {
           </h2>
           <p className="text-lg mb-8 opacity-90">
             Dive into our curated collection of fashion articles covering the most relevant topics 
-            in today's style landscape. From trend analysis to personal styling guides, 
+            in today&apos;s style landscape. From trend analysis to personal styling guides, 
             we have content for every fashion enthusiast and style-conscious individual.
           </p>
           <div className="grid md:grid-cols-2 gap-6">

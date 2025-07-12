@@ -154,7 +154,7 @@ function BlogPageClient() {
               entrepreneurs who share their knowledge and experiences.
             </p>
             <p className="leading-relaxed">
-              Whether you're a startup founder, business professional, or aspiring entrepreneur, 
+              Whether you&apos;re a startup founder, business professional, or aspiring entrepreneur, 
               our content provides actionable strategies for growth and success.
             </p>
           </div>

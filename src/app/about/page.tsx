@@ -140,7 +140,7 @@ const About: React.FC = () => {
                   Founded in 2014, Content Sphere emerged from a vision to create a comprehensive platform where knowledge meets innovation. Our team of industry experts, experienced developers, business strategists, and fashion professionals work collaboratively to deliver content that not only informs but also inspires action and growth.
                 </p>
                 <p>
-                  We understand that in today's fast-paced world, quality information is the key to success. Our commitment to excellence has made us a trusted source for professionals, entrepreneurs, developers, and anyone passionate about staying current with industry trends and technological advancements.
+                  We understand that in today&apos;s fast-paced world, quality information is the key to success. Our commitment to excellence has made us a trusted source for professionals, entrepreneurs, developers, and anyone passionate about staying current with industry trends and technological advancements.
                 </p>
               </div>
               <div className="flex items-center space-x-4">
@@ -181,7 +181,7 @@ const About: React.FC = () => {
                 We create and curate high-quality content across multiple domains, ensuring that our readers receive the most relevant and up-to-date information. Our content strategy focuses on providing actionable insights, practical tutorials, and thought-provoking analysis.
               </p>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                From in-depth technical tutorials to comprehensive business analysis, we cover topics that matter to today's digital professionals and enthusiasts.
+                From in-depth technical tutorials to comprehensive business analysis, we cover topics that matter to today&apos;s digital professionals and enthusiasts.
               </p>
             </div>
             <div className="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 dark:border-gray-700">
@@ -232,11 +232,10 @@ const About: React.FC = () => {
                 icon: "👗",
                 gradient: "from-teal-500 to-[#178E79]"
               },
-            ].map((topic, index) => (
+            ].map((topic) => (
               <div
                 key={topic.title}
                 className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 dark:border-gray-700"
-                style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className={`w-20 h-20 bg-gradient-to-r ${topic.gradient} rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}>
                   <span className="text-3xl">{topic.icon}</span>
@@ -285,7 +284,7 @@ const About: React.FC = () => {
                 icon: "🤝",
                 gradient: "from-teal-500 to-[#178E79]"
               },
-            ].map((value, index) => (
+            ].map((value) => (
               <div key={value.title} className="text-center group">
                 <div className={`w-24 h-24 bg-gradient-to-r ${value.gradient} rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
                   <span className="text-4xl">{value.icon}</span>
@@ -312,7 +311,7 @@ const About: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-white rounded-full mx-auto mb-8"></div>
           <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
-            We value your feedback, suggestions, and collaboration opportunities. Whether you have questions about our content, want to contribute, or simply want to share your thoughts, we'd love to hear from you.
+            We value your feedback, suggestions, and collaboration opportunities. Whether you have questions about our content, want to contribute, or simply want to share your thoughts, we&apos;d love to hear from you.
           </p>
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8 max-w-2xl mx-auto">
             <p className="text-lg mb-6">

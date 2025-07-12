@@ -121,9 +121,6 @@ export default function Page() {
                 🚀 Explore Blogs
               </Button>
             </Link>
-            <Button variant="outline" className="px-10 py-4 rounded-xl text-lg font-bold border-2 border-[#178E79] text-[#178E79] hover:bg-[#178E79] hover:text-white transition-all duration-300">
-              📧 Subscribe
-            </Button>
           </div>
         </div>
       </section>
@@ -172,7 +169,7 @@ export default function Page() {
               <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Regular Updates</h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                 Stay current with our regularly updated content that reflects the latest trends, technologies, 
-                and industry developments. We keep you informed about what's happening in your field of interest.
+                and industry developments. We keep you informed about what&apos;s happening in your field of interest.
               </p>
             </div>
           </div>
@@ -197,9 +194,7 @@ export default function Page() {
                 🚀 Start Reading Now
               </Button>
             </Link>
-            <Button variant="outline" className="px-10 py-4 rounded-xl text-lg font-bold border-2 border-white text-white hover:bg-white hover:text-[#178E79] transition-all duration-300">
-              📧 Subscribe Newsletter
-            </Button>
+            
           </div>
         </div>
       </section>
