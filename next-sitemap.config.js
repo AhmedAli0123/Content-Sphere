@@ -14,9 +14,6 @@ module.exports = {
           disallow: ['/admin/', '/api/', '/_next/', '/private/', '/studio/'],
         },
       ],
-      additionalSitemaps: [
-        'https://content-sphere-one.vercel.app/sitemap.xml',
-      ],
     },
       transform: async (config, path) => {
     // Custom priority and changefreq based on path
