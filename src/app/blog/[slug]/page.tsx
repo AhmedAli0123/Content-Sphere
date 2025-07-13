@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const post = await client.fetch(query, { slug });
   
   return {
-    title: post?.title || 'Blog Post',
-    description: post?.body ? post.body[0]?.children?.[0]?.text?.slice(0, 160) || 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.' : 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.',
+    title: post?.title ? post.title[0]?.children?.[0]?.text?.slice(0, 45) || 'Blog Post' : 'Blog Post',
+    description: post?.body ? post.body[0]?.children?.[0]?.text?.slice(0, 150) || 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.' : 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.',
     authors: [{ name: post.author?.name || 'Content Sphere Team' }],
     openGraph: {
       title: post?.title || 'Blog Post',
@@ -109,9 +109,9 @@ async function PostPage({ params }: { params: { slug: string } }) {
     <section>
       <div className="max-w-3xl my-5 md:my-[100px] mx-auto p-6 rounded-lg shadow-lg transition-transform transform duration-300 dark:bg-gray-700 bg-gray-100">
         {/* Blog Title */}
-        <h2 className="text-xl md:text-5xl font-bold text-gray-800 dark:text-slate-100 mb-4">
+        <h1 className="text-xl md:text-5xl font-bold text-gray-800 dark:text-slate-100 mb-4">
           {post?.title}
-        </h2>
+        </h1>
 
         {/* Blog Date */}
         <div className="text-sm md:text-lg text-gray-600 dark:text-gray-300 mb-4">

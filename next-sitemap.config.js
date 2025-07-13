@@ -2,10 +2,11 @@
 module.exports = {
     siteUrl: 'https://content-sphere-one.vercel.app',
     generateRobotsTxt: true,
-    sitemapSize: 5000,
+    sitemapSize: 7000,
     changefreq: 'daily',
     priority: 0.7,
-    exclude: ['/admin/*', '/api/*', '/_next/*', '/404', '/500'],
+    exclude: ['/admin/*', '/api/*', '/_next/*', '/404', '/500', '/studio/*'],
+    generateIndexSitemap: false,
     robotsTxtOptions: {
       policies: [
         {

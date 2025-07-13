@@ -64,6 +64,7 @@ async function RelatedPosts({ categories, currentPostId }: RelatedPostsProps) {
             <Image
               src={blog.mainImage?.asset.url || "/placeholder.png"}
               alt={blog.title}
+              title={blog.title}
               width={500}
               height={500}
               className="w-full h-52 object-cover"
