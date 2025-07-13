@@ -7,7 +7,7 @@ import FAQSchema, { homePageFAQs } from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: 'Content Sphere – Blogs on Business, Technology, Fashion & AI',
-  description: 'Discover insightful blogs on fashion, business, and cutting-edge technology. Stay informed with the latest trends, AI insights, and industry analysis from Content Sphere.',
+  description: 'Blogs on fashion, business, and technology. Stay informed with the latest trends, AI insights, and industry analysis from Content Sphere.',
   keywords: [
     'business blog',
     'technology blog', 

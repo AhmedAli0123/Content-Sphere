@@ -50,9 +50,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://content-sphere-one.vercel.app/'),
-  alternates: {
-    canonical: '/',
-  },
   robots: {
     index: true,
     follow: true,
@@ -103,7 +100,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="tAQxGU-ofzjYEmFd0MDeYZKcojaQuW3j1qMGVPDcae4" />
-        <link rel="canonical" href="https://content-sphere-one.vercel.app/" />
         <meta name="theme-color" content="#178E79" />
         <meta name="msapplication-TileColor" content="#178E79" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

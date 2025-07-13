@@ -3,8 +3,8 @@ import BusinessPageClient from "./BusinessPageClient";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: 'Business Blogs & Style Trends',
-  description: 'Business Blogs - Expert insights on business growth, marketing and strategy. Content Sphere helps you succeed in the modern business world.',
+  title: 'Business Blog | Entrepreneurship',
+  description: 'Discover expert business insights on entrepreneurship, marketing strategies, and industry trends. Professional guidance for business success.',
   keywords: 'business blogs, entrepreneurship, business tips, industry trends, startup, management, marketing',
   alternates: {
     canonical: 'https://content-sphere-one.vercel.app/blog/business',
@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Business Blogs & Style Trends',
-    description: 'Explore the latest business insights, entrepreneurship tips, and industry trends on Content Sphere. Stay ahead in the business world.',
+    title: 'Business Blog | Entrepreneurship & Strategy Insights',
+    description: 'Discover expert business insights on entrepreneurship, marketing strategies, and industry trends. Professional guidance for business success.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Business Blogs & Style Trends',
-    description: 'Explore the latest business insights, entrepreneurship tips, and industry trends on Content Sphere. Stay ahead in the business world.',
+    title: 'Business Blog | Entrepreneurship & Strategy Insights',
+    description: 'Discover expert business insights on entrepreneurship, marketing strategies, and industry trends. Professional guidance for business success.',
   },
 };
 

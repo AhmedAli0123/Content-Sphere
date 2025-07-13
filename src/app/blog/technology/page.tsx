@@ -3,8 +3,8 @@ import TechnologyPageClient from "./TechnologyPageClient";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: 'Technology Blogs & Style Trends',
-  description: 'Technology Blogs - Explore the world of technology with articles on AI, startups, software trends, and innovation. Stay tech-savvy with Content Sphere.',
+  title: 'Technology Blog | Programming & Tech Trends',
+  description: 'Explore cutting-edge technology articles covering AI, tech, and latest tech trends. Expert insights and tutorials from Content Sphere.',
   keywords: 'technology blogs, tech articles, programming, AI, software development, tech trends, technology blog',
   alternates: {
     canonical: 'https://content-sphere-one.vercel.app/blog/technology',
@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Technology Blogs',
-    description: 'Explore the latest technology blogs and articles on Content Sphere. Stay updated with tech trends, programming, AI, and more.',
+    title: 'Technology Blog | Programming & Tech Trends',
+    description: 'Explore cutting-edge technology articles covering AI, programming, software development, and latest tech trends. Expert insights and tutorials from Content Sphere.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Technology Blogs - Content Sphere',
-    description: 'Explore the latest technology blogs and articles on Content Sphere. Stay updated with tech trends, programming, AI, and more.',
+    title: 'Technology Blog Posts | AI, Programming & Tech Trends',
+    description: 'Explore cutting-edge technology articles covering AI, programming, software development, and latest tech trends. Expert insights and tutorials from Content Sphere.',
   },
 };
 

@@ -3,7 +3,7 @@ import BlogPageClient from "./BlogPageClient";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: 'Latest Blog | Content Sphere',
+  title: 'Latest Blog | Technology, Business & Fashion',
   description: 'Discover the latest insights on technology, business strategies, fashion trends. Expert analysis, tutorials and industry updates from Content Sphere.',
   keywords: ['blog posts', 'technology articles', 'business insights', 'fashion trends', 'AI tutorials', 'digital content', 'industry analysis', 'professional development', 'tech news', 'business strategies', 'fashion guides', 'artificial intelligence', 'Content Sphere blog'],
   authors: [{ name: 'Ahmed Ali' }],

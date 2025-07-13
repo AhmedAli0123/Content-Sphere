@@ -37,7 +37,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <nav className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 mb-6" aria-label="Breadcrumb">
+      <nav className="flex items-center space-x-2 text-sm text-gray-600 bg-transparent dark:text-gray-400 mb-6" aria-label="Breadcrumb">
         <Link 
           href="/" 
           className="flex items-center hover:text-[#178E79] transition-colors duration-200"
