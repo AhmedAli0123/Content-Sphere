@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   title: 'Contact Us | Get in Touch with our Team',
   description: 'Contact Content Sphere — Have questions or collaboration ideas? Get in touch with our team. We&apos;d love to hear from you and respond as soon as possible.',
   keywords: ['Contact Content Sphere', 'Content Sphere Contact', 'Contact Page', 'Blog Contact', 'Contact Content Sphere'],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: 'https://content-sphere-one.vercel.app/contact',
     languages: {

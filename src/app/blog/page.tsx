@@ -7,7 +7,17 @@ export const metadata: Metadata = {
   description: 'Discover the latest insights on technology, business strategies, fashion trends. Expert analysis, tutorials and industry updates from Content Sphere.',
   keywords: ['blog posts', 'technology articles', 'business insights', 'fashion trends', 'AI tutorials', 'digital content', 'industry analysis', 'professional development', 'tech news', 'business strategies', 'fashion guides', 'artificial intelligence', 'Content Sphere blog'],
   authors: [{ name: 'Ahmed Ali' }],
-  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: 'Latest Blog Posts & Articles | Content Sphere',
     description: 'Discover the latest insights on technology, business strategies, fashion trends, and AI innovations. Expert analysis and tutorials from Content Sphere.',

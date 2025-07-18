@@ -44,6 +44,17 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: post?.title ? post.title[0]?.children?.[0]?.text?.slice(0, 45) || 'Blog Post' : 'Blog Post',
     description: post?.body ? post.body[0]?.children?.[0]?.text?.slice(0, 150) || 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.' : 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.',
     authors: [{ name: post.author?.name || 'Content Sphere Team' }],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     openGraph: {
       title: post?.title || 'Blog Post',
       description: post?.body ? post.body[0]?.children?.[0]?.text?.slice(0, 160) || 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.' : 'Learn more about Content Sphere, the blog that explores the latest trends in business, technology, fashion, and AI.',

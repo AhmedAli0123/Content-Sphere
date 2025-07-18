@@ -10,7 +10,17 @@ export const metadata: Metadata = {
   description: 'Discover Content Sphere - a premier blogging platform covering fashion, business, technology, and AI trends. Learn about our mission since 2014.',
   keywords: ['About Content Sphere', 'Content Sphere About', 'Blogging Platform', 'Digital Content', 'Technology Blog', 'Business Blog', 'Fashion Blog', 'AI Blog', 'Content Creation'],
   authors: [{ name: 'Ahmed Ali' }],
-  robots: 'index, follow',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: 'About Content Sphere - Digital Content Platform',
     description: 'Discover Content Sphere - a premier blogging platform covering fashion, business, technology, and AI trends since 2014.',
@@ -43,6 +53,7 @@ export const metadata: Metadata = {
       'en-AU': 'https://content-sphere-one.vercel.app/about',
       'x-default': 'https://content-sphere-one.vercel.app/about',
     },
+    
   },
 };
 

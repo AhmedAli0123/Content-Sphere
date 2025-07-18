@@ -6,6 +6,17 @@ export const metadata: Metadata = {
   title: 'Business Blog | Entrepreneurship',
   description: 'Discover expert business insights on entrepreneurship, marketing strategies, and industry trends. Professional guidance for business success.',
   keywords: 'business blogs, entrepreneurship, business tips, industry trends, startup, management, marketing',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: 'https://content-sphere-one.vercel.app/blog/business',
     languages: {

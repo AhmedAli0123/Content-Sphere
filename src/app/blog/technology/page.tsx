@@ -6,6 +6,17 @@ export const metadata: Metadata = {
   title: 'Technology Blog | Programming & Tech Trends',
   description: 'Explore cutting-edge technology articles covering AI, tech, and latest tech trends. Expert insights and tutorials from Content Sphere.',
   keywords: 'technology blogs, tech articles, programming, AI, software development, tech trends, technology blog',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: 'https://content-sphere-one.vercel.app/blog/technology',
     languages: {
